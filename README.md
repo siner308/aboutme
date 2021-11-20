@@ -91,7 +91,12 @@ MAU: 50만
 - 초기엔 jekyll로 작성된 템플릿을 fork받아서 작성하였음. (2019.01 ~ 2020.12)
 - jekyll에서 글이 아닌 '코드'를 작성한다는 느낌을 많이 받았고, 이는 블로그에 새로운 글이 작성되지 않는 문제로 이어졌음.
 - 위의 문제점을 해결하고자 gatsby로 프레임을 작성하고 git submodule로 posts를 분리한 나만의 구조로 블로그를 만들었음.
-- 현재 blog-posts repo의 issues를 활용하여 초안을 작성하고 repo에서 바로 new files로 바로 파일을 업로드 하는 플로우로 글을 작성하게 되었고, markdown web editor를 활용하면서 ide를 통해 블로그 글을 작성하는 끔찍한 일을 피하게 되었음.  
+- submodule에서의 자동배포 방법
+  - netlify와 blog repo integration을 통해 blog repo의 commit 발생시 자동배포
+  - blog-posts, aboutme의 commit 발생시 github-actions를 통해 netlify webhook 호출 -> 자동배포
+- 현재 blog-posts repo의 issues를 활용하여 초안을 작성하고 repo에서 바로 new files로 바로 파일을 업로드 하는 플로우로 글을 작성하게 되었고, markdown web editor를 활용하면서 ide를 통해 블로그 글을 작성하는 끔찍한 일을 피하게 되었음.
+
+`gatsby` `graphql` `react` `netlify` `github-actions`
 
 ## 게임 커뮤니티 Slackbot, Kakao 챗봇 서버 운영 경험 (2018.07 ~ 현재)
 - [github](https://github.com/ingress-resistance-korea/irk-bot/)

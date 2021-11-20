@@ -94,7 +94,7 @@ MAU: 50만
 - submodule에서의 자동배포 방법
   - netlify와 blog repo integration을 통해 blog repo의 commit 발생시 자동배포
   - blog-posts, aboutme의 commit 발생시 github-actions를 통해 netlify webhook 호출 -> 자동배포
-- 현재 blog-posts repo의 issues를 활용하여 초안을 작성하고 repo에서 바로 new files로 바로 파일을 업로드 하는 플로우로 글을 작성하게 되었고, markdown web editor를 활용하면서 ide를 통해 블로그 글을 작성하는 끔찍한 일을 피하게 되었음. (심지어 이미지 업로드도 에디터에 drag&drop만 하면 된다!)
+- 현재 blog-posts repo의 issues를 활용하여 초안을 작성하고 repo에서 바로 new files로 바로 파일을 업로드 하는 플로우로 글을 작성하게 되었고, markdown web editor를 활용하면서 ide를 통해 블로그 글을 작성하는 끔찍한 일을 피하게 되었음. (심지어 이미지나 동영상도 에디터에 drag&drop만 하면 업로드 된다!)
 
 `gatsby` `graphql` `react` `netlify` `github-actions`
 

@@ -74,8 +74,8 @@ MAU: 50만
 
 ## 떡볶이맵 (2021.05 ~ 현재)
 - [https://ttbkk.com](https://ttbkk.com)
-- [github(frontend)](https://github.com/ttbkk-web)
-- [github(backend)](https://github.com/ttbkk-server)
+- [github(frontend)](https://github.com/siner308/ttbkk-web)
+- [github(backend)](https://github.com/siner308/ttbkk-server)
 - 대한민국 어디서든 떡볶이를 빠르게 맛보기 위한 지도 서비스를 개발 및 운영중.
 
   `django` `mysql` `docker` `nginx`

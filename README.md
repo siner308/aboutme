@@ -10,12 +10,13 @@
 
 # Work Experiences
 
-## creatrip (2020.06 ~ 현재)
+## devsisters (2022.02 ~ 현재)
+To Be Descripted
+
+## creatrip (2020.06 ~ 2022.02)
 개발팀 규모: 10명 내외 (Backend, Frontend, App(Cross Platform))
 
 MAU: 180만
-
-[자세한 기술스택을 포함한 채용공고는 여기에](https://career.creatrip.team/)
 
 - backend api
   - 기존기능 유지보수 및 고도화를 통한 레거시 청산

@@ -3,7 +3,7 @@
 # 안정현 Jeong Hyun An
 - Github. **[siner308](https://github.com/siner308)**
 - Blog. **[blog.siner.io](/)**
-- Email. **[siner308@gmail,com](mailto:siner308@gmail.com)**
+- Email. **[siner308@gmail.com](mailto:siner308@gmail.com)**
 
 ---
 

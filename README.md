@@ -17,13 +17,34 @@
 ## 데브시스터즈 (2022.02 ~ 현재)
 _진저랩 백엔드셀 소프트웨어 엔지니어. (구. 플랫폼셀) (2023.11 ~ 현재)_
 
-- To be updated
+- 크로스 게임 프로모션(CGP) 서버 구조 개편
+  - 후에 이어질 API 기반 서버구조로 개편하기에 앞서, 발생하고 있던 성능 이슈 개선.
+    - 의존성을 가지는 다양한 서버에서 발생하는 N+1 문제 해결.
+    - 레디스 캐시를 잘못 사용하고 있어서 다양한 이슈가 생기고 있었는데, 위의 성능 개선으로 인해 캐시를 서비스에서 사용하지 않도록 할 수 있었음.
+  - 게임-플랫폼 서버간의 통신 없이 게임서버가 찍는 로그를 기반으로 동작하던 구조에서, 게임서버에서 직접 API를 찌르도록 구조 변경
+    - 기존에 게임서버에서 찍고있던 로그를 기반으로 기능을 제공한다는 멋진 아이디어에서 시작했지만, 이후 다양한 기능을 제공하기 위해 로그 스키마를 위해 다양한 이해관계자가 프로젝트에 불필요하게 참여하게 되는 등 비효율적인 구조가 되었고, API 기반으로 전환하면서 절차가 많이 간소화됨.
+  - 유저가 게임간 연계되는 프로모션의 보상을 받기 위해서는 하나의 계정으로 여러 게임을 묶어주는 계정연동이 필수적인데, 이 과정에서 발생하는 다양한 이슈가 있었음. 해당 프로젝트를 주도적으로 진행하면서, 기존에 가지고있던 문제점들의 원인을 파악하고 가시화함.
+- 플랫폼 인증의 유지보수에 다양한 방법으로 기여
+  - 다양한 인증수단 추가
+    - [Google Play Games Service](https://developer.android.com/games/pgs/overview?hl=ko)
+    - Devsisters 게임간 device id 기반 편리한 로그인 제공 ([^과거 로그인 기록을 통해 유저에게 편리함을 제공하는 방법])
+    - 초대코드 기반의 유저 인증 (CBT, 런칭 초기에 사용)
+  - 인게임 웹뷰 개편 (go template 기반에서 nextjs로 재구현)
+    - 8년된 인증서버에 붙어있던 웹뷰였고, 기존 팀 내에서 상당히 넓은 회색지대로 존재했었음.
+    - 재구현하는 과정에서 많은 회색지대를 해소하였고, 인증서버의 리팩토링 두려움을 많이 줄였음.
+    - 이 과정에서 게임서버, 게임클라이언트, 모바일SDK, 웹뷰, 플랫폼서버의 호출에 대한 이해도가 높아짐.
+- 인프라 개편
+  - 사내 인프라 조직에서 만들어 둔 테라폼 기반의 모듈로 생성한 쿠버네티스 클러스터에 기존 서비스 이전.
+    - 다양한 쿠버네티스 클러스터에 흩어져있던 서비스를 하나의 클러스터로 옮기는 과정에서, 통일되어있지 않던 차트를 통일함.
+    - 이때 인프라 지식이 많이 늘었고, 이후 다양한 작업을 진행하는 데 도움이 됨.
+  - 새로운 게임에서 타 게임과 독립된 플랫폼 환경이 필요하여, 기존 서버들을 새로 띄우는 작업을 함.
+    - 이 과정에서 one platform 의존적인 구조였던 문제점들을 발견하고 개선함.
 
 _진저랩 웹서비스셀 소프트웨어 엔지니어. 테크리드 (현. 웹콘솔셀) (2022.02 ~ 2023.11)_
 
 - 사내 BI 서비스 런칭 및 유지보수 (2022.02 ~ 2023.09)
   - 복잡한 비즈니스 로직에도 효율적인 구조를 가지기 위한 DSL 설계 및 개발
-    - [웹 개발자의 데이터 애플리케이션 flow 효율화하기](https://tech.devsisters.com/posts/dash-data-flow/)
+    - [^웹 개발자의 데이터 애플리케이션 flow 효율화하기]
   - 캐시 데이터 적재 파이프라인 개발
 - 웹콘솔 개발 (2023.08 ~ )
   - 사내 인오피스 제품들을 통합된 경험으로 제공하기 위한 제품
@@ -105,10 +126,10 @@ MAU: 50만
 
 # Toy Projects
 
-## 떡볶이맵 (2021.05 ~ 현재)
+## 떡볶이맵 (2021.05 ~ 2024.07)
 - 대한민국 어디서든 떡볶이를 빠르게 맛보기 위한 지도 서비스입니다.
-- 집에 있는 ubuntu 서버를 통해 운영중입니다.
-- 초기에는 크롤링 언어와 백엔드 언어를 python으로 통일시켰지만, type safe, IoC 등의 이점을 누리고자 Kotlin Spring으로 마이그레이션을 진행중입니다.
+- 홈서버를 통해 운영하였으나, 현재 supabase 기반으로 마이그레이션 상태.
+- 초기에는 크롤링 언어와 백엔드 언어를 python으로 통일하여 운영함.
 
 
 - Page. [https://ttbkk.com](https://ttbkk.com)
@@ -118,11 +139,10 @@ MAU: 50만
   - [backend spring](https://github.com/ttbkk-univ/ttbkk-spring)
 
 
-- backend, crawling: `django` `nginx` `selenium`
-- backend v2 (예정): `kotlin` `spring` `flyway` `kotest`
-- frontend: `react(vite)` `recoil` `tanstack/query` `mui/material` `kakao map` `google oauth`
-- infrastructure: `docker` `route53` `cloudfront` `s3`
-- database: `mysql` `redis`
+- Crawling: `python` `selenium`
+- Frontend: `react(vite)` `recoil` `tanstack/query` `mui/material` `kakao map` `google oauth`
+- Infrastructure: `docker` `route53` `cloudfront` `s3`
+- Database: `supabase`
 - CI/CD: `github-actions`
 
 ## 기술 블로그 (2019.01 ~ 현재)
@@ -172,7 +192,8 @@ MAU: 50만
 # Presentation & Interview
 - 🎥 [2023 NE(O)RDINARY CONFERENCE - 비전공자의 커리어 성장기](https://www.youtube.com/watch?v=BlI4F9NZNkQ)
 - 🗒 [mergingkr - 좋아하는 일로 재미있게 먹고 사는 개발자 이야기](https://medium.com/@mergingkr/좋아하는-일로-ㅈㅐ미있게-먹고-사는-개발자-이야기-e2b0c73cf5d5)
-
+- [^웹 개발자의 데이터 애플리케이션 flow 효율화하기]: [Devsisters Tech Blog](https://tech.devsisters.com/posts/dash-data-flow/)
+- [^과거 로그인 기록을 통해 유저에게 편리함을 제공하는 방법]: [Devsisters Tech Blog](https://tech.devsisters.com/posts/devplay-account/)
 ---
 
 # ETC
